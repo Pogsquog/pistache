@@ -23,20 +23,20 @@ option(PISTACHE_USE_SSL "add support for SSL server" ON)
 
 find_program(CTEST_MEMORYCHECK_COMMAND NAMES valgrind)
 find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
-find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
-
-if (CMAKE_CXX_CPPCHECK)
-    message("-- Cppcheck found " ${CMAKE_CXX_CPPCHECK})
-    list(
-        APPEND CMAKE_CXX_CPPCHECK 
-            "--enable=all"
-            "--suppress=*:${PROJECT_SOURCE_DIR}/third-party*"
-            "--suppress=*:${PROJECT_SOURCE_DIR}/tests*"
-    )
-else()
-    message("-- Cppcheck not found")
-    set(CMAKE_CXX_CPPCHECK "")
-endif()
+#find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
+#
+#if (CMAKE_CXX_CPPCHECK)
+#    message("-- Cppcheck found " ${CMAKE_CXX_CPPCHECK})
+#    list(
+#        APPEND CMAKE_CXX_CPPCHECK
+#            "--enable=all"
+#            "--suppress=*:${PROJECT_SOURCE_DIR}/third-party*"
+#            "--suppress=*:${PROJECT_SOURCE_DIR}/tests*"
+#    )
+#else()
+#    message("-- Cppcheck not found")
+#    set(CMAKE_CXX_CPPCHECK "")
+#endif()
 
 INCLUDE(Dart)
 
