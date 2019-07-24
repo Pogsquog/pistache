@@ -114,6 +114,7 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR}/include)
         set(OPENSSL_USE_STATIC_LIBS TRUE)
         find_package(OpenSSL REQUIRED)
         include_directories(${OPENSSL_INCLUDE_DIR})
+        message(STATUS "OPENSSL='${OPENSSL_VERSION}'")
 
         set(LIBS "${LIBS} -lssl -lcrypto")
     endif(PISTACHE_USE_SSL)
@@ -213,9 +214,3 @@ endif()
     #  dist target to the generated makefile...
     include(CPack)
     add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
-
-get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
-foreach(dir ${dirs})
-    message(STATUS "dir='${dir}'")
-endforeach()
-message(STATUS "OPENSSL='${OPENSSL_VERSION}'")
