@@ -111,6 +111,10 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR}/include)
 
     # If building with OpenSSL support...
     if(PISTACHE_USE_SSL)
+        set(OPENSSL_USE_STATIC_LIBS TRUE)
+        find_package(OpenSSL REQUIRED)
+        include_directories(${OPENSSL_INCLUDE_DIR})
+
         set(LIBS "${LIBS} -lssl -lcrypto")
     endif(PISTACHE_USE_SSL)
 
@@ -210,3 +214,8 @@ endif()
     include(CPack)
     add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
+get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+foreach(dir ${dirs})
+    message(STATUS "dir='${dir}'")
+endforeach()
+message(STATUS "OPENSSL='${OPENSSL_VERSION}'")
