@@ -15,8 +15,8 @@
 #include <vector>
 #include <bitset>
 
+#include <atomic>
 #include <sched.h>
-
 
 namespace Pistache {
 
@@ -133,7 +133,7 @@ public:
     bool tryRead() const;
 
 private:
-    Fd event_fd;
+    std::atomic<Fd> event_fd;
 };
 
 } // namespace Pistache
