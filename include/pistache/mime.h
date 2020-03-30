@@ -36,6 +36,7 @@ namespace Mime {
     SUB_TYPE(Xml       , "xml")        \
     SUB_TYPE(Javascript, "javascript") \
     SUB_TYPE(Css       , "css")        \
+    SUB_TYPE(Csv       , "csv")        \
     \
     SUB_TYPE(OctetStream,    "octet-stream") \
     SUB_TYPE(Json          , "json")                  \
@@ -54,6 +55,7 @@ namespace Mime {
     SUFFIX(Fastinfoset, "fastinfoset", "Fast Infoset")                 \
     SUFFIX(Wbxml      , "wbxml"      , "WAP Binary XML")               \
     SUFFIX(Zip        , "zip"        , "ZIP file storage")             \
+    SUFFIX(Csv        , "csv"        , "Comma-separated values")             \
     SUFFIX(Xml        , "xml"        , "Extensible Markup Language")
 
 
